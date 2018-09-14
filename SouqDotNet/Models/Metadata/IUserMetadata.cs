@@ -15,7 +15,7 @@ namespace SouqDotNet.Models.Metadata
         string Username { get; set; }
         [RegularExpression(@"^[a-zA-Z0-9_]+$")]
         [Required]
-        [DataType(DataType.Password]
+        [DataType(DataType.Password)]
         string Password { get; set; }
     }
     [MetadataType(typeof(IUserMetadata))]
