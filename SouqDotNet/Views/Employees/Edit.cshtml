@@ -1,0 +1,35 @@
+﻿@model SouqDotNet.Models.Entities.Employee
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Update Employee</h2>
+<br />
+@using (Html.BeginForm("Edit", "Employees", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(q => q.Id)
+        @Html.TextBoxFor(q => q.Id, new { @readonly = true, @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Name)
+        @Html.TextBoxFor(q => q.Name, new { @placeholder = "Enter Customer Name", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Salary)
+        @Html.TextBoxFor(q => q.Salary, new { @placeholder = "Enter Salary", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Job)
+        @Html.TextBoxFor(q => q.Job, new { @placeholder = "Enter Job", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Department.Name)
+        @Html.DropDownListFor(q => q.DepartmentId, ViewBag.departmentID as SelectList, new { @placeholder = "Enter Address", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="submit" />
+        @Html.ActionLink("Back", "Index", null, null, new { @class = "btn btn-warning" })
+    </div>
+}

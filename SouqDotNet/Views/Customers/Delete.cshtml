@@ -1,0 +1,38 @@
+﻿@model SouqDotNet.Models.Entities.Customer
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Are You Sure You Want To Delete This Customer</h2>
+<br />
+@using (Html.BeginForm("Delete", "Customers"))
+{
+    <div class="alert alert-info">
+        <div class="form-group">
+            @Html.LabelFor(q => q.Id)
+            @Html.TextBoxFor(q => q.Id, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(q => q.CustomerName)
+            @Html.TextBoxFor(q => q.CustomerName, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group ">
+            @Html.LabelFor(q => q.Mobile)
+            @Html.TextBoxFor(q => q.Mobile, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(q => q.Email)
+            @Html.TextBoxFor(q => q.Email, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(q => q.Address)
+            @Html.TextBoxFor(q => q.Address, new { @readonly = true, @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-danger" value="Delete" />
+        @Html.ActionLink("Back", "Index", null, null, new { @class = "btn btn-warning" })
+    </div>
+}
+

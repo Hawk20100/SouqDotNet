@@ -1,0 +1,79 @@
+﻿@model SouqDotNet.Models.Entities.Product
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Create New Product</h2>
+<br />
+@using (Html.BeginForm("Create", "Products", FormMethod.Post,new {enctype="multipart/form-data"}))
+{
+    <div class="form-group">
+        @Html.LabelFor(q => q.ProductName)
+        @Html.TextBoxFor(q => q.ProductName, new { @placeholder = "Enter Product Name", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Price)
+        @Html.TextBoxFor(q => q.Price, new { @placeholder = "Enter Price", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Quantity)
+        @Html.TextBoxFor(q => q.Quantity, new { @placeholder = "Enter Quantity", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Description)
+        @Html.TextBoxFor(q => q.Description, new { @placeholder = "Enter Description", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Category.Name)
+        @Html.DropDownListFor(q => q.CategoryId, ViewBag.categoryId as SelectList, new { @placeholder = "Select Category", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.ImageUrl)
+        <input type="file" name="FilePhoto" class="form-control" id="FilePhoto" />
+        <img id="ShowImage" class="img-thumbnail" />
+        <p class="text-danger" id="Error"></p>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="submit" />
+        @Html.ActionLink("Back", "Index", null, null, new { @class = "btn btn-warning" })
+    </div>
+}
+
+@section Styles{
+    <style>
+        #ShowImage {
+            display: none;
+            height: 200px;
+            margin: 10px 5px 0 0;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script>
+        function showPhoto(src, target) {
+            var fileReader = new FileReader();
+
+            fileReader.onload = function () {
+                target.src = fileReader.result;
+            };
+            fileReader.readAsDataURL(src.files[0]);
+        }
+        function putPhoto() {
+            if (!document.getElementById("FilePhoto").files[0].type.match('image.*')) {
+                document.getElementById("ShowImage").style["display"] = "none";
+                document.getElementById("Error").innerHTML = "Please Select Image File";
+                document.getElementById("FilePhoto").value = "";
+            }
+            else {
+                document.getElementById("Error").innerHTML = "";
+                var src = document.getElementById("FilePhoto");
+                var target = document.getElementById("ShowImage");
+                target.style["display"] = "block";
+                showPhoto(src, target);
+            }
+        }
+        document.getElementById('FilePhoto').addEventListener('change', putPhoto, false);
+    </script>
+}

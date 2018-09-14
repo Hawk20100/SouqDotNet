@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SouqDotNet.Models.Entities.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Products</h2>
+<div class="row justify-content-between">
+    @Html.ActionLink("Create New Product", "Create", "Products", new { @class = "btn btn-success" })
+    @using (Html.BeginForm("Search", "Products", FormMethod.Post))
+    {
+        <div class="form-group my-2 my-lg-0 form-inline col">
+            @Html.TextBox("name", null, new { @placeholder = "Customer Name", @class = "form-control mr-sm-2", @type = "Search" })
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+    }
+</div>
+<br />
+<table class="table table-striped">
+    <caption>List of Products</caption>
+    <thead class="thead-light">
+        <tr>
+            <th>@Html.DisplayNameFor(q => q.Id)</th>
+            <th>@Html.DisplayNameFor(q => q.ProductName)</th>
+            <th>@Html.DisplayNameFor(q => q.Quantity)</th>
+            <th>@Html.DisplayNameFor(q => q.Description)</th>
+            <th>@Html.DisplayNameFor(q => q.ImageUrl)</th>
+            <th>@Html.DisplayNameFor(q => q.Category.Name)</th>
+            <th>Settings</th>
+        </tr>
+    </thead>
+    @foreach (var Product in Model)
+    {
+        <tr>
+            <td>@Product.Id</td>
+            <td>@Product.ProductName</td>
+            <td>@Product.Quantity</td>
+            <td>@Product.Description</td>
+            <td><img id="ProductImage" class="img-thumbnail" src="@Url.Action("ImageUplaod","Products",new {path = Product.ImageUrl })" /> </td>
+            <td>@Product.Category.Name</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = Product.Id }, new { @class = "btn btn-outline-danger border-0" })
+                @Html.ActionLink("Edit", "Edit", new { id = Product.Id }, new { @class = "btn btn-outline-success border-0" })
+                @Html.ActionLink("Details", "Details", new { id = Product.Id }, new { @class = "btn btn-outline-info border-0" })
+            </td>
+        </tr>
+    }
+</table>
+
+
+@section Styles{
+<style>
+    #ProductImage {
+        height: 50px;
+        /*/*border: 1px solid #000;*/
+        /*-moz-border-radius: 10px;
+        -webkit-border-radius: 10px;*/
+        /*border-radius: 10px;*/*/
+    }
+</style>
+}

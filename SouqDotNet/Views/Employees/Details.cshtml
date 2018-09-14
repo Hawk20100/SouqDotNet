@@ -1,0 +1,31 @@
+﻿@model SouqDotNet.Models.Entities.Employee
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Employee Details</h2>
+<br />
+<div class="alert alert-info">
+    <div class="form-group">
+        @Html.LabelFor(q => q.Id)
+        @Html.TextBoxFor(q => q.Id, new { @readonly = true, @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Name)
+        @Html.TextBoxFor(q => q.Name, new { @readonly = true, @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Salary)
+        @Html.TextBoxFor(q => q.Salary, new { @readonly = true, @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Job)
+        @Html.TextBoxFor(q => q.Job, new { @readonly = true, @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Department.Name)
+        @Html.TextBoxFor(q => q.Department.Name, new { @readonly = true, @class = "form-control" })
+    </div>
+</div>
+@Html.ActionLink("Back", "Index", null, null, new { @class = "btn btn-warning" })

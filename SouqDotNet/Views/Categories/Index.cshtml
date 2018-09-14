@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SouqDotNet.Models.Entities.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Categories</h2>
+<br />
+<div class="row justify-content-between">
+    @Html.ActionLink("Create New Category", "Create", null, null, new { @class = "btn btn-success col-sm-3" })
+    @using (Html.BeginForm("Search", "Categories", FormMethod.Post))
+    {
+        <div class="form-group my-2 my-lg-0 form-inline col">
+            @Html.TextBox("name", null, new { @placeholder = "Category Name", @class = "form-control mr-sm-2", @type = "Search" })
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+    }
+</div>
+<br />
+<table class="table table-striped">
+    <caption>List of Categories</caption>
+    <thead class="thead-light">
+        <tr>
+            <th>@Html.DisplayNameFor(q => q.Id)</th>
+            <th>@Html.DisplayNameFor(q=>q.Name)</th>
+            <th>@Html.DisplayNameFor(q=>q.Description)</th>
+            <th>Settings</th>
+        </tr>
+    </thead>
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@category.Id</td>
+            <td>@category.Name</td>
+            <td>@category.Description</td>
+            <td>
+               @Html.ActionLink("Delete", "Delete",new {id=category.Id },  new { @class = " btn btn-outline-danger border-0" })
+               @Html.ActionLink("Edit", "Edit",new { id = category.Id }, new { @class = "btn btn-outline-success border-0" })
+               @Html.ActionLink("Details", "Details",new { id = category.Id }, new { @class = "btn btn-outline-info border-0" })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SouqDotNet.Models.Entities.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Customers</h2>
+<br />
+<div class="row justify-content-between">
+    @Html.ActionLink("Create New Customer", "Create", "Customers", new { @class = "btn btn-success" })
+    @using (Html.BeginForm("Search", "Customers", FormMethod.Post))
+    {
+        <div class="form-group my-2 my-lg-0 form-inline col">
+            @Html.TextBox("name", null, new { @placeholder = "Customer Name", @class = "form-control mr-sm-2", @type = "Search" })
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+    }
+</div>
+<br />
+<br />
+<table class="table table-striped">
+    <caption>List of Customers</caption>
+    <thead class="thead-light">
+        <tr>
+            <th>@Html.DisplayNameFor(q => q.Id)</th>
+            <th>@Html.DisplayNameFor(q => q.CustomerName)</th>
+            <th>@Html.DisplayNameFor(q => q.Mobile)</th>
+            <th>@Html.DisplayNameFor(q => q.Email)</th>
+            <th>@Html.DisplayNameFor(q => q.Address)</th>
+            <th>Settings</th>
+        </tr>
+    </thead>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@customer.Id</td>
+            <td>@customer.CustomerName</td>
+            <td>@customer.Mobile</td>
+            <td>@customer.Email</td>
+            <td>@customer.Address</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = customer.Id }, new { @class = "btn btn-outline-danger border-0" })
+                @Html.ActionLink("Edit", "Edit", new { id = customer.Id }, new { @class = "btn btn-outline-success border-0" })
+                @Html.ActionLink("Details", "Details", new { id = customer.Id }, new { @class = "btn btn-outline-info border-0" })
+            </td>
+        </tr>
+    }
+</table>
+

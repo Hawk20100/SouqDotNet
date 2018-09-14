@@ -1,0 +1,23 @@
+﻿@model SouqDotNet.Models.Entities.Department
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Department Details</h2>
+<br />
+<div class="alert alert-info">
+    <div class="form-group alert alert-info">
+        @Html.LabelFor(q => q.Id)
+        @Html.TextBoxFor(q => q.Id, new { @readonly = true, @class = "form-control" })
+    </div>
+    <div class="form-group alert alert-info">
+        @Html.LabelFor(q => q.Name)
+        @Html.TextBoxFor(q => q.Name, new { @readonly = true, @class = "form-control" })
+    </div>
+    <div class="form-group alert alert-info">
+        @Html.LabelFor(q => q.Description)
+        @Html.TextBoxFor(q => q.Description, new { @readonly = true, @class = "form-control" })
+    </div>
+</div>
+@Html.ActionLink("Back", "Index", null, null, new { @class = "btn btn-warning" })

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/sidebar.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    @RenderSection("Styles",required:false)
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm bg-dark">
+        <a href="#" id="menu-toggle" class=" nav-link">
+            <img src="~/Content/Images/icons8_Menu_64px.png" width="30" height="30" />
+        </a>
+        <a href="#" class="navbar-brand">
+            <img src="~/Content/Images/SouqTech logo.png" height="40" />
+        SouqTech Management 
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class=" collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class=" navbar-nav">
+                <li class=" nav-item dropdown">
+                    <a href="#" class=" nav-link dropdown-toggle" id="dropdownMenuButtonNotify" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="badge badge-danger">5</span>
+                        <img src="~/Content/Images/icons8_Notification_50px.png"class="d-inline-block align-top" width="20" height="20" />
+                        Notification
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonNotify">
+                        <a href="#" class="dropdown-item">Notification One</a>
+                        <a href="#" class="dropdown-item">Notification Two</a>
+                        <a href="#" class="dropdown-item">Notification Three </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-outline-warning dropdown-toggle" id="dropdownMenuButtonAdmin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admin
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdmin">
+                <a href="#" class="dropdown-item">Home</a>
+                <a href="#" class="dropdown-item">Settings</a>
+                <a href="#" class="dropdown-item">Sign Out</a>
+            </div>
+        </div>
+    </nav>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Welcome
+                    </a>
+                </li>
+                <li>
+                    @Html.ActionLink("Categories", "Index", "Categories")
+                </li>
+                <li>
+                    @Html.ActionLink("Customers", "Index", "Customers")
+                </li>
+                <li>
+                    @Html.ActionLink("Departments", "Index", "Departments")
+                </li>
+                <li>
+                    @Html.ActionLink("Employees", "Index", "Employees")
+                </li>
+                <li>
+                    @Html.ActionLink("Products", "Index", "Products")
+                </li>
+                <li>
+                    @Html.ActionLink("Transactions", "Index", "Transactions")
+                </li>
+            </ul>
+        </div>
+        <br>
+        <div class="container">
+            @RenderBody()
+        </div>
+
+        <script>
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
+        @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@model SouqDotNet.Models.Entities.Product
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Are you sure you want to delete this product ?</h2>
+<br />
+@using (Html.BeginForm("Delete", "Products"))
+{
+    <div class="alert alert-info">
+        <div class="form-group">
+            @Html.LabelFor(q => q.Id)
+            @Html.TextBoxFor(q => q.Id, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(q => q.ProductName)
+            @Html.TextBoxFor(q => q.ProductName, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(q => q.Price)
+            @Html.TextBoxFor(q => q.Price, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(q => q.Quantity)
+            @Html.TextBoxFor(q => q.Quantity, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(q => q.Description)
+            @Html.TextBoxFor(q => q.Description, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(q => q.Category.Name)
+            @Html.TextBoxFor(q => q.Category.Name, new { @readonly = true, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(q => q.ImageUrl)
+            @Html.TextBoxFor(q => q.ImageUrl, new { @readonly = true, @class = "form-control" })
+        </div>
+
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-danger" value="Delete" />
+        @Html.ActionLink("Back", "Index", null, null, new { @class = "btn btn-warning" })
+    </div>
+}

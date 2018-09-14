@@ -1,0 +1,22 @@
+﻿@model SouqDotNet.Models.Entities.Department
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+<h2 class="display-4">Create New Department </h2>
+<br />
+@using (Html.BeginForm("Create", "Departments", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(q => q.Name)
+        @Html.TextBoxFor(q => q.Name, new { @placeholder = "Enter Department Name", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Description)
+        @Html.TextBoxFor(q => q.Description, new { @placeholder = "Enter Description", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="submit" />
+        @Html.ActionLink("Back", "Index", null, null, new { @class = "btn btn-warning" })
+    </div>
+}

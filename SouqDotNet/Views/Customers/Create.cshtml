@@ -1,0 +1,32 @@
+﻿@model SouqDotNet.Models.Entities.Customer
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h2 class="display-4">Create New Customer</h2>
+<br />
+@using (Html.BeginForm("Create", "Customers", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(q => q.CustomerName)
+        @Html.TextBoxFor(q => q.CustomerName, new { @placeholder = "Enter Customer Name", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Mobile)
+        @Html.TextBoxFor(q => q.Mobile, new { @placeholder = "Enter Mobile Number", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Email)
+        @Html.TextBoxFor(q => q.Email, new { @placeholder = "Enter Email", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(q => q.Address)
+        @Html.TextBoxFor(q => q.Address, new { @placeholder = "Enter Address", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="submit" />
+        @Html.ActionLink("Back", "Index", null, null, new { @class = "btn btn-warning" })
+    </div>
+}
+
