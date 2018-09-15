@@ -1,0 +1,19 @@
+﻿@model SouqDotNet.Models.Entities.User
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Default form login -->
+<div class="container">
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "text-center border-light p-5" }))
+    {
+        <p class="display-4 mb-5">Sign in</p>      
+        @Html.TextBoxFor(q=>q.Username,new { @placeholder = "Username", @class = "form-control mb-4" })       
+        @Html.PasswordFor(q=>q.Password,new { @placeholder = "Password", @class = "form-control mb-4" })
+        <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+        <p>
+            Not a member?
+            <a href="">Register</a>
+        </p>
+    }
+</div>
