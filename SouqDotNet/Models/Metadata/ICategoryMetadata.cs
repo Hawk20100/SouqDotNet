@@ -14,12 +14,10 @@ namespace SouqDotNet.Models.Metadata
     {
         [DisplayName("#")]
         int Id { get; set; }
-        [RegularExpression(@"^[a-zA-Z]+$")]
         [Required]
         [MaxLength(50, ErrorMessage = "less than 50 charterer")]
         [DisplayName("Category")]
         string Name { get; set; }
-        [RegularExpression(@"^[a-zA-Z]+$")]
         [Required]
         [MaxLength(250, ErrorMessage = "less than 250 charterer")]
         string Description { get; set; }

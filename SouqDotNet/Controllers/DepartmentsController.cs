@@ -25,7 +25,7 @@ namespace SouqDotNet.Controllers
             return View();
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Create(Department newDepartment)
         {
@@ -53,7 +53,7 @@ namespace SouqDotNet.Controllers
             return View(department);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Edit(Department updatedDepartment)
         {
@@ -96,7 +96,7 @@ namespace SouqDotNet.Controllers
             return View(DeletedDepartment);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Delete(Department deletedDepartment)
         {
@@ -109,7 +109,7 @@ namespace SouqDotNet.Controllers
             return View(deletedDepartment);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Search(string name)
         {

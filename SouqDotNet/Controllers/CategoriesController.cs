@@ -25,7 +25,7 @@ namespace SouqDotNet.Controllers
             return View();
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Create(Category newCategory)
         {
@@ -53,7 +53,7 @@ namespace SouqDotNet.Controllers
             return View(category);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Edit(Category updatedCatgory)
         {
@@ -92,7 +92,7 @@ namespace SouqDotNet.Controllers
             return View(DeletedCategory);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Delete(Category deletedCategory)
         {
@@ -105,7 +105,7 @@ namespace SouqDotNet.Controllers
             return View(deletedCategory);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Search(string name)
         {

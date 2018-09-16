@@ -25,7 +25,7 @@ namespace SouqDotNet.Controllers
             return View();
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Create(Employee newEmployee)
         {
@@ -54,7 +54,7 @@ namespace SouqDotNet.Controllers
             return View(employee);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Edit(Employee updateEmployee)
         {
@@ -98,7 +98,7 @@ namespace SouqDotNet.Controllers
             return View(DeletedEmployee);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Delete(Employee deletedEmployee)
         {
@@ -111,7 +111,7 @@ namespace SouqDotNet.Controllers
             return View(deletedEmployee);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Search(string name)
         {

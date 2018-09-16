@@ -1,6 +1,16 @@
-﻿
+﻿@model IEnumerable<SouqDotNet.Models.Entities.Product>
 @{
     ViewBag.Title = "Index";
 }
-
-
+<div class="card-deck m-4">
+    @foreach (var Product in Model)
+    {
+        <div class="card w-75 h-100">
+            <img class="card-img-top" src="~/Uploads/ProductImages/@Product.ImageUrl" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@Product.ProductName</h5>
+                <p class="card-text"> @Product.Description </p>
+            </div>
+        </div>
+    }
+</div>

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 //
 using SouqDotNet.Models.Context;
 using SouqDotNet.Models.Entities;
+
 namespace SouqDotNet.Controllers
 {
     public class ProductsController : Controller
@@ -33,7 +34,7 @@ namespace SouqDotNet.Controllers
             return View();
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Create(Product newProduct)
         {
@@ -72,7 +73,7 @@ namespace SouqDotNet.Controllers
             return View(product);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Edit(Product updateProduct)
         {
@@ -112,7 +113,7 @@ namespace SouqDotNet.Controllers
             return View(product);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpGet]
         public ActionResult Delete(int? id)
         {
@@ -128,21 +129,16 @@ namespace SouqDotNet.Controllers
             return View(DeletedProduct);
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Delete(Product deletedProduct)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(deletedProduct).State = System.Data.Entity.EntityState.Deleted;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(deletedProduct);
-            
+            db.Entry(deletedProduct).State = System.Data.Entity.EntityState.Deleted;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Search(string name)
         {

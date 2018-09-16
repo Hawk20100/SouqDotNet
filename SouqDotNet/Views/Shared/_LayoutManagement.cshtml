@@ -47,35 +47,33 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdmin">
                 <a href="#" class="dropdown-item">Home</a>
                 <a href="#" class="dropdown-item">Settings</a>
-                <a href="#" class="dropdown-item">Sign Out</a>
+                @Html.ActionLink("Sign Out", "Logout", "Login",null,new { @class = "dropdown-item" })
             </div>
         </div>
     </nav>
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Welcome
-                    </a>
+                <li class="sidebar-brand">    
+                    @Html.ActionLink("Home","Index","Home")
                 </li>
                 <li>
-                    @Html.ActionLink("Categories", "Index", "Categories")
+                    @Html.ActionLink("Category", "Index", "Categories")
                 </li>
                 <li>
-                    @Html.ActionLink("Customers", "Index", "Customers")
+                    @Html.ActionLink("Customer", "Index", "Customers")
                 </li>
                 <li>
-                    @Html.ActionLink("Departments", "Index", "Departments")
+                    @Html.ActionLink("Department", "Index", "Departments")
                 </li>
                 <li>
-                    @Html.ActionLink("Employees", "Index", "Employees")
+                    @Html.ActionLink("Employee", "Index", "Employees")
                 </li>
                 <li>
-                    @Html.ActionLink("Products", "Index", "Products")
+                    @Html.ActionLink("Product", "Index", "Products")
                 </li>
                 <li>
-                    @Html.ActionLink("Transactions", "Index", "Transactions")
+                    @Html.ActionLink("Transaction", "Index", "Transactions")
                 </li>
             </ul>
         </div>

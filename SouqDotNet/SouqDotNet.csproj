@@ -195,6 +195,10 @@
     <Compile Include="Migrations\201809151714428_updatingDatabase.Designer.cs">
       <DependentUpon>201809151714428_updatingDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809162223414_updateDatabase.cs" />
+    <Compile Include="Migrations\201809162223414_updateDatabase.Designer.cs">
+      <DependentUpon>201809162223414_updateDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\SouqContext.cs" />
     <Compile Include="Models\Entities\Category.cs" />
@@ -283,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809151714428_updatingDatabase.resx">
       <DependentUpon>201809151714428_updatingDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809162223414_updateDatabase.resx">
+      <DependentUpon>201809162223414_updateDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
