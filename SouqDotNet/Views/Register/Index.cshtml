@@ -3,18 +3,18 @@
     ViewBag.Title = "Index";
 }
 
-<div class="container">
+<div class="container col-5">
     <!-- Default form register -->
-    @using (Html.BeginForm("UserRegister", "Register", FormMethod.Post, new { @class = "text-center border border-light p-5" }))
+    @using (Html.BeginForm("UserRegister", "Register", FormMethod.Post, new { @class = "text-center border border-0 mb-4" }))
     {
-        <p class="display-4 mb-4">Sign up</p>
+        <p class="display-4 mb-5">Sign up</p>
         <!-- First name -->
-        @Html.TextBoxFor(q=>q.Username,new {@class= "form-control mb-4", @placeholder= "Username" })
+        @Html.TextBoxFor(q=>q.Username,new {@class= "form-control mb-5", @placeholder= "Username" })
         <!-- E-mail -->
-        @Html.TextBoxFor(q=>q.Email, new { @class = "form-control mb-4", @placeholder = "Email" })
+        @Html.TextBoxFor(q=>q.Email, new { @class = "form-control mb-5", @placeholder = "Email" })
         <!-- Password -->
-        @Html.PasswordFor(q => q.Password, new { @class = "form-control mb-4", @placeholder = "Password" })     
-        <input type="password" class="form-control mb-4" placeholder="Confirm Password">
+        @Html.PasswordFor(q => q.Password, new { @class = "form-control mb-5", @placeholder = "Password" })     
+        <input type="password" class="form-control mb-5" placeholder="Confirm Password">
         <!-- Sign up button -->
         <button class="btn btn-info my-4 btn-block" type="submit">Sign Up</button>
     }

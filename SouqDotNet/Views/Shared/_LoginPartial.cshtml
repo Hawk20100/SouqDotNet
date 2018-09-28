@@ -1,0 +1,20 @@
+﻿
+@if (Session["Username"] == null)
+{
+    @Html.ActionLink("Register", "Index", "Register", null, new { @class = "btn btn-outline-success my-2 my-sm-0 m-4 " })
+    @Html.ActionLink("Sign In", "Index", "Login", null, new { @class = "btn btn-outline-primary my-2 my-sm-0 " })
+}
+else
+{
+    <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" id="dropdownMenuButtonAdmin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdmin">
+            <a href="#" class="dropdown-item">Home</a>
+            <a href="#" class="dropdown-item">Settings</a>
+            @Html.ActionLink("Sign Out", "Logout", "Login", null, new { @class = "dropdown-item" })
+        </div>
+    </div>
+
+}

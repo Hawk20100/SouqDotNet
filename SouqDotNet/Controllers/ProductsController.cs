@@ -8,6 +8,7 @@ using System.Web.Mvc;
 //
 using SouqDotNet.Models.Context;
 using SouqDotNet.Models.Entities;
+using PagedList.Mvc;
 
 namespace SouqDotNet.Controllers
 {
@@ -20,6 +21,12 @@ namespace SouqDotNet.Controllers
             path = Path.Combine(Server.MapPath("~/Uploads/ProductImages/") + path);
             byte[] photoArray = System.IO.File.ReadAllBytes(path);
             return new FileContentResult(photoArray, "image.jpg");
+        }
+
+        public ViewResult ActionName()
+        {
+
+            return View();
         }
 
         public ActionResult Index()
