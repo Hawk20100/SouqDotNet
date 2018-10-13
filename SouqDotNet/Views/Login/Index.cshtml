@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-<!-- Default form login -->
+
 <div class="container col-5 my-5">
     @using (Html.BeginForm("LoginAutherize", "Login", FormMethod.Post, new { @class = "text-center border-light " }))
     {
@@ -14,7 +14,7 @@
         <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
         <p>
             Not a member?
-            <a href="">Register</a>@Html.ActionLink("Register", "UserRegister","Register")
+            @Html.ActionLink("Register", "UserRegister","Register")
         </p>
     }
 </div>
